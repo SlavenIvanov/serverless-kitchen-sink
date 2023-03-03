@@ -5,13 +5,31 @@ provider:
   name: aws
   runtime: nodejs18.x
 
+# Plugin order matters?
 plugins:
+  - serverless-webpack
   - serverless-offline
 
 functions:
+
   HelloWorld:
-    handler: src/HelloWorld.handler
+    handler: src/starter/HelloWorld.handler
     events:
       - httpApi:
-          path: /hello-world
+          path: /starter/hello-world
           method: get
+
+  Params:
+    handler: src/starter/Params.handler
+    events:
+      - httpApi:
+          path: /starter/params/{pathParamOne}
+          method: post
+
+  Handyman:
+    handler: src/starter/Handyman.handler
+    events:
+      - httpApi:
+          path: /starter/handyman/{pathParamOne}
+          method: post
+#

@@ -7,7 +7,6 @@ serverless remove
 
 1. Setup
 2. Project structure
-3. Technologies used
 4. Use cases
 5. Development
 6. Debugging
@@ -20,15 +19,16 @@ serverless remove
 
 #### Stack?
 - TS
-- Serverless
-- AWS
-- DynamoDB
+  Postgres ?
 - S3
 - SQS
 - SNS
-- prettier 
+- prettier
 - eslint???
-- jest
+- jest- Serverless
+- AWS
+- DynamoDB
+-
 - 
 
 What did you cover in the Hack a Thursday?
@@ -41,3 +41,7 @@ What did you cover in the Hack a Thursday?
 1. Serverless [getting started](https://www.serverless.com/framework/docs/getting-started) guide 
 2. SLS offline: [click](https://github.com/dherault/serverless-offline#installation)
 
+- Bundlers:
+  -  webpack
+  -  esbuild
+  - 
