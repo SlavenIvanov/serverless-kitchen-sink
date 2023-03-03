@@ -1,0 +1,15 @@
+{
+  "name": "sls-kitchen-sink",
+  "version": "1.0.0",
+  "description": "A 'kitchen sink' example of a Serverless Framework project",
+  "main": "index.js",
+  "scripts": {
+    "sls-offline": "sls offline"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-offline": "^12.0.4"
+  }
+}

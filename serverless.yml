@@ -1,0 +1,17 @@
+service: sls-kitchen-sink
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+plugins:
+  - serverless-offline
+
+functions:
+  HelloWorld:
+    handler: src/HelloWorld.handler
+    events:
+      - httpApi:
+          path: /hello-world
+          method: get
