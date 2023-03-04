@@ -6,3 +6,9 @@ jspm_packages
 .serverless
 .webpack
 .build
+
+# DynamoDB local data
+.dynamodb
+
+# Jest
+coverage

@@ -5,6 +5,12 @@
 serverless remove
 ```
 
+```shell
+sls dynamodb install
+```
+Issue 403: https://github.com/99x/serverless-dynamodb-local/issues/209
+Fix: https://github.com/99x/dynamodb-localhost/pull/78/files
+
 1. Setup
 2. Project structure
 4. Use cases
@@ -15,7 +21,6 @@ serverless remove
 9. Monitoring
 10. Logs
 11. Plugins
-
 
 #### Stack?
 - TS
@@ -28,8 +33,7 @@ serverless remove
 - jest- Serverless
 - AWS
 - DynamoDB
--
-- 
+- env 
 
 What did you cover in the Hack a Thursday?
 
@@ -45,3 +49,32 @@ What did you cover in the Hack a Thursday?
   -  webpack
   -  esbuild
   - 
+
+### TODO
+- dynamo
+- testing
+- environments
+- variables https://www.serverless.com/framework/docs/providers/aws/guide/variables/
+- env variables: https://www.serverless.com/framework/docs/environment-variables/
+
+- aws sdk - v2 vs v3
+- workbench
+tree
+- db seeding
+- env variables : ssm
+
+- serverless yaml reference: https://www.serverless.com/framework/docs/providers/aws/guide/serverless.yml/
+- nvm
+- 
+
+```shell
+sls deploy --stage dev
+```
+```shell
+sls deploy --stage prod
+
+```
+
+- iam permissions : https://www.serverless.com/framework/docs/providers/aws/guide/iam
+- nosql workbench
+- event triggers 

@@ -4,32 +4,115 @@ frameworkVersion: '3'
 provider:
   name: aws
   runtime: nodejs18.x
+  stage: local
+  region: eu-west-1
+  environment:
+    MY_SUPER_SECRET_API_KEY: ${env:MY_SUPER_SECRET_API_KEY}
 
-# Plugin order matters?
+# Plugin order matters!
 plugins:
   - serverless-webpack
+  - serverless-dynamodb-local
   - serverless-offline
 
-functions:
+# Important option to reduce lambda size
+package:
+  individually: true
+# This enables usage of .env files
+useDotenv: true
 
+custom:
+#  either get the stage from the command line or use the stage defined in the provider
+  stage: ${opt:stage, self:provider.stage}
+  serviceShortName: sks
+  #  Fetch a variable from SSM
+  ssmVariable: ${ssm:/my-ssm-variable-${self:custom.stage}, ''}
+  dynamodb:
+    # Stages in which local dynamodb is started
+    stages:
+      - local
+    start:
+      port: 8008
+      inMemory: true
+#      Create tables, as defined in 'Resources' section
+      migrate: true
+#      Seed dynamodb, as configured in 'seed' section
+      seed: true
+    seed:
+      local:
+        sources:
+          - table: NodeEnjoyersTable
+            sources: [./dynamo/seed/NodeEnjoyersTable.json]
+
+resources:
+  Resources:
+    NodeEnjoyersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: NodeEnjoyersTable
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+
+functions:
+# starter
   HelloWorld:
-    handler: src/starter/HelloWorld.handler
+    handler: src/lambda/starter/HelloWorld.handler
     events:
       - httpApi:
           path: /starter/hello-world
           method: get
-
   Params:
-    handler: src/starter/Params.handler
+    handler: src/lambda/starter/Params.handler
     events:
       - httpApi:
           path: /starter/params/{pathParamOne}
           method: post
-
   Handyman:
-    handler: src/starter/Handyman.handler
+    handler: src/lambda/starter/Handyman.handler
     events:
       - httpApi:
           path: /starter/handyman/{pathParamOne}
           method: post
-#
+# dynamo
+  GetNodeEnjoyers:
+    handler: src/lambda/dynamo/GetNodeEnjoyers.handler
+    events:
+      - httpApi:
+          path: /dynamo/node-enjoyers
+          method: get
+    iamRoleStatementsName: ${self:custom.serviceShortName}-GetNodeEnjoyers-${self:custom.stage}
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - dynamodb:GetItem
+          - dynamodb:PutItem
+        Resource: arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/NodeEnjoyersTable
+  AddNodeEnjoyer:
+    handler: src/lambda/dynamo/AddNodeEnjoyer.handler
+    events:
+      - httpApi:
+          path: /dynamo/node-enjoyers
+          method: post
+    iamRoleStatementsName: ${self:custom.serviceShortName}-AddNodeEnjoyer-${self:custom.stage}
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - dynamodb:GetItem
+          - dynamodb:PutItem
+        Resource: arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/NodeEnjoyersTable
+# other
+  CronJob:
+    handler: src/lambda/other/CronJob.handler
+    events:
+      - schedule:
+          rate: rate(1 minute)
+          input:
+            foo: Ayy 👌
+

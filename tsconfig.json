@@ -11,7 +11,8 @@
       "ES2015"
     ],
     "types": [
-      "node"
+      "node",
+      "jest"
     ],
     "rootDir": "./",
     "allowJs": true,
