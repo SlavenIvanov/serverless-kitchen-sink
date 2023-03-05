@@ -14,7 +14,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/preset-typescript": "^7.21.0",
     "@types/aws-lambda": "^8.10.111",
     "@types/jest": "^29.4.0",
     "@types/node": "^18.14.5",
@@ -36,7 +35,6 @@
     "aws-lambda-handyman": "^0.5.7",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
-    "nanoid": "^4.0.1",
     "reflect-metadata": "^0.1.13"
   }
 }

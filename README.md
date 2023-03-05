@@ -78,3 +78,25 @@ sls deploy --stage prod
 - iam permissions : https://www.serverless.com/framework/docs/providers/aws/guide/iam
 - nosql workbench
 - event triggers 
+
+- Middy
+- Zod
+--
+- Make pretty
+
+
+### Node.js Talk:
+1. Growy Node.js use case.
+2. Cloud Stack
+   - AWS
+   - Node.js 16+
+   - TypeScript
+   - Serverless
+   - Webpack
+   - Jest
+   - Dynamo
+   - Postgres
+   - Prisma
+3. Example Project
+   1. LCD
+   2. Structure

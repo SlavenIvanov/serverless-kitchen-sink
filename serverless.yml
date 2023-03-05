@@ -6,6 +6,7 @@ provider:
   runtime: nodejs18.x
   stage: local
   region: eu-west-1
+  timeout: 300
   environment:
     MY_SUPER_SECRET_API_KEY: ${env:MY_SUPER_SECRET_API_KEY}
 
@@ -26,7 +27,7 @@ custom:
   stage: ${opt:stage, self:provider.stage}
   serviceShortName: sks
   #  Fetch a variable from SSM
-  ssmVariable: ${ssm:/my-ssm-variable-${self:custom.stage}, ''}
+#  ssmVariable: ${ssm:/my-ssm-variable-${self:custom.stage}, ''}
   dynamodb:
     # Stages in which local dynamodb is started
     stages:
