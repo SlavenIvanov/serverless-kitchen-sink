@@ -4,4 +4,4 @@ module.exports.handler = async (event) => {
     body: JSON.stringify({ message: 'Hello Serverless! 👌👽' })
   };
 };
-2
+
