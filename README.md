@@ -60,14 +60,15 @@ npm install
 ```shell
 sls dynamodb install
 ```
-P.S: If you get a 403 when running above command. It's a known, pending [issue](https://github.com/99x/serverless-dynamodb-local/issues/209) and the fix is 3 lines of code in edited in `node_modules/dynamodb-localhost` [here](https://github.com/99x/dynamodb-localhost/pull/78/files)
+**P.S:** If you get a 403 when running above command. It's a known, pending [issue](https://github.com/99x/serverless-dynamodb-local/issues/209) and the fix is 3 lines of code in edited in `node_modules/dynamodb-localhost` [here](https://github.com/99x/dynamodb-localhost/pull/78/files)
 
 ### Starting the local server
 1. Run:
 ```shell
 npm run sls-offline
 ```
-2. Call any of the endpoints via Postman(`requests/postman.json`)/Curl
+2. Import Postman requests from `postman/collection.json`
+3. Call the endpoints
 
 ### Testing
 ```shell
@@ -98,7 +99,7 @@ serverless remove
 
 
 ## Resources
-1. Postman requests -> `TODO`
+1. Postman requests: `postman/collection.json`
 2. Serverless [getting started](https://www.serverless.com/framework/docs/getting-started) guide
 3. [Serverless yaml reference](https://www.serverless.com/framework/docs/providers/aws/guide/serverless.yml/)
 3. [Serverless plugins](https://www.serverless.com/plugins/)

@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "dcbb4132-267a-4aea-92be-da8551e8c13c",
+		"name": "Serverless Kitchen Sink",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6586162"
+	},
+	"item": [
+		{
+			"name": "starter",
+			"item": [
+				{
+					"name": "Hello World",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/starter/hello-world",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"starter",
+								"hello-world"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Params",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\": \"Here are our friends\",\n    \"friends\": [\n        \"💁‍♂️\",\n        \"💃\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/starter/params/one?queryOne=😎 Ayy",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"starter",
+								"params",
+								"one"
+							],
+							"query": [
+								{
+									"key": "queryOne",
+									"value": "😎 Ayy"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Handyman",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\": \"Here are our friends\",\n    \"friends\": [\n        \"💁‍♂️\",\n        \"💃\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/starter/handyman/one?queryOne=😎 Ayy",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"starter",
+								"handyman",
+								"one"
+							],
+							"query": [
+								{
+									"key": "queryOne",
+									"value": "😎 Ayy"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dynamo",
+			"item": [
+				{
+					"name": "NodeEnjoyers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dynamo/node-enjoyers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dynamo",
+								"node-enjoyers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NodeEnjoyers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Bianka\",\n    \"email\": \"asdasd@asd.bg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dynamo/node-enjoyers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dynamo",
+								"node-enjoyers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "hello-world",
+			"item": [
+				{
+					"name": "Hello World",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/hello-world",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"hello-world"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

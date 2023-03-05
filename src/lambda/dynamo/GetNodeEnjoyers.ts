@@ -4,7 +4,7 @@ import { getNodeEnjoyers } from '../../common/Dynamo'
 export const handler = async () => {
   const enjoyers = await getNodeEnjoyers()
 
-  console.log(process.env)
+  console.log('Node enjoyers:', enjoyers)
 
   return ok(enjoyers)
 }
