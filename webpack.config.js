@@ -25,5 +25,6 @@ module.exports = {
   stats: {
     preset: 'minimal'
   },
+  // 😎👇 Important to reduce bundle size (AWS packages these libs in the Lambda Runtime by default)
   externals: ['aws-sdk', '@aws-sdk/client-dynamodb', '@aws-sdk/lib-dynamodb']
 }
